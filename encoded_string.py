@@ -16,7 +16,10 @@ def expand_encoded_string(encoded):
     >>> expand_encoded_string('B1o2k2e2p1e1r1!3')
     'Bookkeeper!!!'
     """
-    # TODO
+    encoded_string = ""
+    for i in range(0, len(encoded) - 1, 2):
+        encoded_string = encoded_string + (encoded[i] * int(encoded[i+1]))
+    return encoded_string
 
 
 def main():
