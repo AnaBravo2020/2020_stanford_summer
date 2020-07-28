@@ -26,6 +26,7 @@ def main():
             data[store] = expense
 
     for store in data.keys():
+        # Check format here
         print(store + ": $" + str(data[store]))
 
 
