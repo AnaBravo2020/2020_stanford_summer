@@ -10,10 +10,23 @@ INPUT_FILE = 'bill1.txt'
 
 
 def main():
-    """
-    Add your code (remember to delete the "pass" below)
-    """
-    pass
+    data = dict()
+    file = open(INPUT_FILE, 'r')
+
+    for line in file:
+        line = line.strip("\n")
+        start = line.find("[")
+        end = line.find("]")
+        store = line[start+1: end]
+        start = line.find("$")
+        expense = float(line[start+1:])
+        if store in data.keys():
+            data[store] = data[store] + expense
+        else:
+            data[store] = expense
+
+    for store in data.keys():
+        print(store + ": $" + str(data[store]))
 
 
 # This provided line is required at the end of a Python file
